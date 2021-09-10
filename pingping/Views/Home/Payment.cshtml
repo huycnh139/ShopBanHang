@@ -1,0 +1,162 @@
+﻿@using System.Configuration
+@using Modal.EF
+@model Modal.EF.HoaDon
+@{
+    ViewBag.Title = "Thanh Toán";
+}
+
+@if (Model == null || Model.id_hoadon == 0)
+{
+    <div class="alert-danger text-center" style="margin:20px">@ViewBag.ThongBao</div>
+}
+else
+{
+    <!-- Start Checkout -->
+    <section class="shop checkout section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-12">
+                    <div class="checkout-form">
+                        <h2>Địa Chỉ Giao Hàng</h2>
+                        <!-- Form -->
+                        <form class="form" method="post" action="#">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label>Địa Chỉ<span>*</span></label>
+                                        <input type="text" name="name" id="to_address" placeholder="" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label>Tỉnh/Thành Phố<span>*</span></label>
+                                        <select id="to_province" onchange="to_LoadDistrict(value)" required="required">
+                                            <option value="0" selected>---</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label>Quận/Huyện<span>*</span></label>
+                                        <select id="to_district" onchange="to_LoadWard(value)" required="required">
+                                            <option value="0">---</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label>Phường/Xã<span>*</span></label>
+                                        <select id="to_ward" onchange="to_LoadWardCode(value)" required="required">
+                                            <option value="0">---</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label>HÌnh Thức<span>*</span></label>
+                                        <select id="service" onchange="LoadService(value)" required="required">
+                                            <option value="0">---</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!--/ End Form -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <div class="order-details">
+                        <!-- Order Widget -->
+                        <div class="single-widget">
+                            <h2>CART  TOTALS</h2>
+                            <div class="content">
+                                <ul>
+                                    <li>Tạm Tính<span id="tt">0</span></li>
+                                    <li>(+) Phí Vận Chuyển(GHN)<span id="freeship_GHN">@Model.freeship</span></li>
+                                    <li class="last">Tổng Tiền<span id="t">@Model.tonggia</span></li>
+                                </ul>
+                                <input id="tonggia" value="@Model.tonggia" hidden />
+                            </div>
+                        </div>
+                        <!--/ End Order Widget -->
+                        <!-- Order Widget -->
+                        <div class="single-widget">
+                            <h2>Chọn Phương Thức Thanh Toán</h2>
+                            <br />
+                            <div class="clearfix"></div>
+                            <div class="content" style="margin-left:10%">
+                                <div>
+                                    <lable><input type="radio" id="rdoNL" name="paymentMenthod" value="TienMat" /> Tiền Mặt </lable>
+                                </div>
+                                <div>
+                                    <lable><input type="radio" id="rdoBank" name="paymentMenthod" value="Paypal" /> PayPal</lable>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12" style="text-align:right">
+                            <input type="submit" class="btn btn-success" id="pick_order" value="Đặt Hàng" />
+                        </div>
+                        
+
+                        <div style="display:none" id="paypal" class="boxContent">
+                            <form action="@ConfigurationManager.AppSettings["urlSubmitPayment"]">
+                                <input type="hidden" name="cmd" value="_cart" />
+                                <input type="hidden" name="upload" value="1" />
+                                <input type="hidden" name="return" value="@ConfigurationManager.AppSettings["urlReturn"]" />
+                                <input type="hidden" name="business" value="@ConfigurationManager.AppSettings["accountBusiness"]" />
+                                @{IEnumerable<HoaDonCT> listHoaDonChiTiet = (IEnumerable<HoaDonCT>)ViewBag.lstHoaDonChiTiet;}
+                                @{IEnumerable<Size> listSize = (IEnumerable<Size>)ViewBag.lstSize;}
+                                @if (listHoaDonChiTiet != null && listSize != null)
+                                {
+                                    var i = 0;
+                                    foreach (var item in listHoaDonChiTiet)
+                                    {
+                                        var size = "";
+                                        foreach (var s in listSize)
+                                        {
+                                            if (item.id_size == s.id_size)
+                                            {
+                                                size = s.size;
+                                            }
+                                        }
+                                        if (size != "")
+                                        {
+                                            var Monney = item.dongia;
+                                            Monney = Monney / 22950;
+                                            var ten = "Tên: " + item.SanPham.tensp + "; Size: " + size + "; Màu: " + item.color;
+                                            <input type="hidden" name="@Url.Content("item_name_" + (i + 1))" value="@ten" />
+                                            <input type="hidden" name="@Url.Content("item_number_" + (i + 1))" value="@item.id_sanpham" />
+                                            <input type="hidden" name="@Url.Content("amount_" + (i + 1))" value="@Monney.Value.ToString("0")" />
+                                            <input type="hidden" name="@Url.Content("quantity_" + (i + 1))" value="@item.soluong" />
+                                            i = i + 1;
+                                        }
+                                    }
+                                }
+                                <br />
+                                <div class="col-12" style="text-align:right">
+                                    <input type="submit" class="btn btn-success" value="PayPal" />
+                                </div>
+                            </form>
+                        </div>
+                        <!--/ End Button Widget -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ End Checkout -->
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/FreeShip.js"></script>
+<script>
+    $(document).ready(function () {
+        //hiden nav Product
+        $('.all-category').hide();
+        $('.nice-select').hide(); 
+        $('#pick_order').hide();
+
+        $('#tt').html(Number($('#tonggia').val()).toLocaleString('vi', { style: 'currency', currency: 'VND' })); 
+        $('#t').html(Number($('#tonggia').val()).toLocaleString('vi', { style: 'currency', currency: 'VND' })); 
+
+    })
+</script>

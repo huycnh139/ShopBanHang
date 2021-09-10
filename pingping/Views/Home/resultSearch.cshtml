@@ -1,0 +1,102 @@
+﻿@using Modal.EF
+@using PagedList.Mvc;
+@model PagedList.IPagedList<SanPham>
+@{
+    ViewBag.Title = "Kết Quả Tìm Kiếm";
+}
+<div class="tab-pane fade show active" id="man" role="tabpanel">
+    <div class="tab-single" style="margin:2% 10% 5% 10%">
+        <div class="row">
+            @foreach (var item in Model.OrderBy(n => n.dongia))
+            {
+                <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                    <div class="single-product">
+                        <div class="product-img">
+                            <a href="~/Home/SingleProcduct/@item.id_loaisp">
+                                <img class="default-img" src="~/Source/img-public/@item.hinhanh1" alt="@item.tenngan">
+                                <img class="hover-img" src="~/Source/img-public/@item.hinhanh2" alt="@item.tenngan">
+                            </a>
+                            <div class="button-head">
+                                <div class="product-action">
+                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+                                    <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+                                    <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+                                </div>
+                                <div class="product-action-2">
+                                    @if (item.dongia <= item.giasale)
+                                    {
+                                        <a href="#" class="btn" onclick="addtocart_quyckly('@item.id_sanpham','@item.tensp','@item.dongia')">Thêm vào Giỏ Hàng</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" class="btn" onclick="addtocart_quyckly('@item.id_sanpham','@item.tensp','@item.giasale')">Thêm vào Giỏ Hàng</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h3><a href="~/Home/SingleProcduct/@item.id_loaisp">@item.tensp</a></h3>
+                            <div class="product-price">
+                                @if (@item.giasale < @item.dongia && @item.giasale > 0)
+                                {
+                                    <b>@item.giasale.ToString("#,##") VND</b>
+                                    <span class="old">@item.dongia.ToString("#,##") VND</span>
+                                }
+                                else
+                                {
+                                    <b>@item.dongia.ToString("#,##") VND</b>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div style="text-align:center">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    @Html.PagedListPager(Model, Page => Url.Action("resultSearch", new { @sTuKhoa = ViewBag.TuKhoa, @searchselect = ViewBag.searchselect, page = Page }))
+</div>
+<link href="~/Content/main/PagedList.css" rel="stylesheet" />
+<script src="~/Scripts/main/addtocart.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //hiden nav Product
+        $('.all-category').hide();
+    })
+    function addtocart_quyckly(id,name,price) {
+            var value_cart = [];
+            value_cart.push({
+                id: id, name: name, price: price, quantity: $('#quantity').val(), id_size: $('#id_size').val(), color: $('#id_color').val()
+            });
+
+            objectCart = JSON.stringify({ 'data': value_cart });
+            if (value_cart == 0) {
+                alert("Đơn Hàng Trống!");
+            }
+            else {
+                $.ajax({
+                    url: '@Url.Action("Set_CheckOut_Quickly", "Home")',
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    data: objectCart,
+                    success: function (result) {
+                        if (result == 1) {
+                            alert("Success.");
+                            window.location.replace('@Url.Action("CheckOut", "Home")');
+                        }
+                        else if (result == -1) { alert("Bạn Cần Đăng Nhập Để Mua Hàng!"); }
+                        //setTimeout(function () {
+                        //    $("#overlay").fadeOut(300);
+                        //}, 500);
+                    },
+                    error: function (errormessage) {
+                        alert(errormessage.responseText);
+                    }
+                });
+            }
+        }
+</script>

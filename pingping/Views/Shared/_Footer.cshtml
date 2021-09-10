@@ -1,0 +1,148 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!-- Start Shop Services Area -->
+<section class="shop-services section home">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="ti-rocket"></i>
+                    <h4>Miễn Phí Vận Chuyển</h4>
+                    <p>Hoá đơn trên 200.000&nbsp;₫  </p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="ti-reload"></i>
+                    <h4>Đổi Trả</h4>
+                    <p>Đổi trả trong 30 ngày</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="ti-lock"></i>
+                    <h4>Thanh toán an toàn</h4>
+                    <p>Cam kết không lưu tài khoản ngân hàng</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="ti-tag"></i>
+                    <h4>Giá rẻ nhất thị trường</h4>
+                    <p>Nơi nào rẻ hơn shop bạn tặng 10.000.000&nbsp;₫</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Shop Services Area -->
+
+<!-- Start Shop Newsletter  -->
+<section class="shop-newsletter section">
+    <div class="container">
+        <div class="inner-top">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-12">
+                    <!-- Start Newsletter Inner -->
+                    <div class="inner">
+                        <h4>Thành Viên Mới</h4>
+                        <p> Đăng kí để nhận chương trình ưu đãi của chúng tôi</p>
+                        @*<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">*@
+                        @using (Html.BeginForm("AddSubscribe", "Home", FormMethod.Post, new { @class = "newsletter-inner" }))
+                        {
+                            <input id="subscribe" name="subscribe" placeholder="Email của bạn" required="" type="email">
+                            <button class="btn">Đăng Kí</button>
+                        }
+                        @*</form>*@
+                    </div>
+                    <!-- End Newsletter Inner -->
+                </div>
+            </div>
+        </div>  
+    </div>
+</section>
+<!-- End Shop Newsletter -->
+
+<!-- Start Footer Area -->
+<footer class="footer">
+    <!-- Footer Top -->
+    <div class="footer-top section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-12">
+                    <!-- Single Widget -->
+                    <div class="single-footer about">
+                        <div class="logo">
+                            <a href="index.html"><img src="~/Source/Images/logo2.png" alt="#"></a>
+                        </div>
+                        <p class="call">Liên Hệ Hotline 24/7<span><a href="tel:0933768512">0933768512</a></span></p>
+                    </div>
+                    <!-- End Single Widget -->
+                </div>
+                <div class="col-lg-2 col-md-6 col-12">
+                    <!-- Single Widget -->
+                    <div class="single-footer links">
+                        <h4>Thông Tin</h4>
+                        <ul>
+                            <li><a href="#">Liên Hệ</a></li>
+                            <li><a href="#">Khiếu Nại</a></li>
+                        </ul>
+                    </div>
+                    <!-- End Single Widget -->
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Single Widget -->
+                    <div class="single-footer social">
+                        <h4>Địa Chỉ</h4>
+                        <!-- Single Widget -->
+                        <div class="contact">
+                            <ul>
+                                <li>280, An Dương Vương, Phường 4, Quận 5</li>
+                                <li>tieuluanTN@eshop.com</li>
+                                <li>+0334303506</li>
+                            </ul>
+                        </div>
+                        <!-- End Single Widget -->
+                        <ul>
+                            <li><a href="#"><i class="ti-facebook"></i></a></li>
+                            <li><a href="#"><i class="ti-twitter"></i></a></li>
+                            <li><a href="#"><i class="ti-flickr"></i></a></li>
+                            <li><a href="#"><i class="ti-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- End Single Widget -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer Top -->
+    <div class="copyright">
+        <div class="container">
+            <div class="inner">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="right">
+                            <img src="~/Source/Images/payments.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- /End Footer Area -->

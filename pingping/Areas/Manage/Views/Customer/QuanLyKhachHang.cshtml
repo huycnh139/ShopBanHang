@@ -1,0 +1,584 @@
+﻿@using pingping.Models
+@model IEnumerable<Account_buyer_Model>
+@{
+    ViewBag.Title = "QuanLyKhachHang";
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 20);
+}
+<div class="main-content-sm" id="panel" style="margin-top:-4%">
+    <!-- Topnav -->
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Search form -->
+                <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+                    <div class="form-group mb-0">
+                        <div class="input-group input-group-alternative input-group-merge">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Search" id="reSearch" type="text">
+                        </div>
+                    </div>
+                    <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </form>
+                <!-- Navbar links -->
+                <ul class="navbar-nav align-items-center  ml-md-auto ">
+                    <li class="nav-item d-xl-none">
+                        <!-- Sidenav toggler -->
+                        <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+                            <div class="sidenav-toggler-inner">
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-sm-none">
+                        <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
+                            <i class="ni ni-zoom-split-in"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="ni ni-bell-55"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
+                            <!-- Dropdown header -->
+                            <div class="px-3 py-3">
+                                <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
+                            </div>
+                            <!-- List group -->
+                            <div class="list-group list-group-flush">
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-1.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>2 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-2.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>3 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-3.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>5 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">Your posts have been liked a lot.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-4.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>2 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-5.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>3 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- View all -->
+                            <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="ni ni-ungroup"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
+                            <div class="row shortcuts px-4">
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-red">
+                                        <i class="ni ni-calendar-grid-58"></i>
+                                    </span>
+                                    <small>Calendar</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-orange">
+                                        <i class="ni ni-email-83"></i>
+                                    </span>
+                                    <small>Email</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-info">
+                                        <i class="ni ni-credit-card"></i>
+                                    </span>
+                                    <small>Payments</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-green">
+                                        <i class="ni ni-books"></i>
+                                    </span>
+                                    <small>Reports</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
+                                        <i class="ni ni-pin-3"></i>
+                                    </span>
+                                    <small>Maps</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
+                                        <i class="ni ni-basket"></i>
+                                    </span>
+                                    <small>Shop</small>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="media align-items-center">
+                                <span class="avatar avatar-sm rounded-circle">
+                                    <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-4.jpg">
+                                </span>
+                                <div class="media-body  ml-2  d-none d-lg-block">
+                                    <span class="mb-0 text-sm  font-weight-bold">@ViewBag.HoTen</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu  dropdown-menu-right ">
+                            <div class="dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Welcome!</h6>
+                            </div>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-single-02"></i>
+                                <span>My profile</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-settings-gear-65"></i>
+                                <span>Settings</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-calendar-grid-58"></i>
+                                <span>Activity</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-support-16"></i>
+                                <span>Support</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-user-run"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="header bg-primary pb-6">
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row align-items-center py-4">
+                    <div class="col-lg-6 col-7">
+                        <h6 class="h2 text-white d-inline-block mb-0">Khách hàng</h6>
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                <li class="breadcrumb-item"><a href="~/Manage/Manage/Index"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Quản Lý Khách Hàng</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    @*<div class="col-lg-6 col-5 text-right">
+                            <button type="button" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#myModal1">Thêm Mới</button>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <!-- Card header -->
+                    <div class="card-header border-0">
+                        <h3 class="mb-0">Khách hàng</h3>
+                    </div>
+                    <!-- Light table -->
+                    <div class="table-responsive" id="kh">
+
+                        @grid.GetHtml(
+                            tableStyle: "table align-items-center table-flush",
+                            headerStyle: "thead-light",
+                            footerStyle: "table-pager",
+                            rowStyle: "",
+                            alternatingRowStyle: "gridAltRow",
+                            columns: grid.Columns(
+                            //grid.Column("id_taikhoan", header: "Mã Tài Khoản"),
+                            grid.Column("hoten", header: "Họ Tên"),
+                            grid.Column("phone", header: "Số Điện Thoại", format: p => (p.phone != null|| p.phone!=0) ? p.phone.ToString("0###-###-###") : ""),
+                            grid.Column("loaitk", header: "Loại TK", format: p => p.loaitk == true ? "Khách Hàng" : "Admin"),
+                            grid.Column("email", header: "Email"),
+                            grid.Column("street", header: "Đường"),
+                            grid.Column("ward", header: "Phường/Xã"),
+                            grid.Column("district", header: "Quận/Huyện"),
+                            grid.Column("province", header: "Tỉnh/TP"),
+                            grid.Column(format: p => Html.ActionLink("Sửa", "#", new { id = p.id_taikhoan }, new { @class = "btn btn-info", onclick = "EditTaiKhoan(" + p.id_taikhoan + ")", data_toggle = "modal", data_target = "#editloaisp" })),
+                            grid.Column(format: p => Html.ActionLink("Xoá", "DeleteAccount", new { id = p.id_taikhoan }, new { @class = "btn btn-danger", onclick = "return confirm('Bạn Có Muốn Xoá Tài Khoản: " + p.hoten + "?')" }))
+
+                        ))
+
+                    </div>
+
+                    <!-- Card footer -->
+                    @*<div class="card-footer py-4">
+                            <nav aria-label="...">
+                                <ul class="pagination justify-content-end mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">
+                                            <i class="fas fa-angle-left"></i>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item active">
+                                        <a class="page-link" href="#">1</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">
+                                            <i class="fas fa-angle-right"></i>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        @Html.Partial("_Footer")
+    </div>
+    </div>
+    <!-- Modal content-->
+    <div id="editloaisp" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                @using (Html.BeginForm("UpdateLoaiSP", "Manage", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit Tài Khoản Người mua</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <div class="col-5">
+                                <label>Mã Tài Khoản:</label>
+                            </div>
+                            <div class="col-6">
+
+                                <input type="text" id="user" class="form-control" readonly />
+                                <input type="text" id="id_taikhoan" name="idloaisp" class="form-control" hidden />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-5">
+                                <label>Mật Khẩu:</label>
+                            </div>
+                            <div class="col-6" id="ressetPass">
+                                @*@Html.ActionLink("Reset Password", "ResetPassword", new { @class = "btn btn-dark" })*@
+                                <a class="btn btn-dark" href="../Manage/Manage/ResetPassword/id">Reset Password</a>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-5">
+                                <label>Loại Tài Khoản:</label>
+                            </div>
+
+                            <div class="col-6" id="updatePassVip">
+                                @*@Html.ActionLink("Nâng cấp", "ResetPassword", new { @class = "btn btn-dark" })*@
+                                <a class="btn btn-dark" href="../Manage/Manage/ResetPassword/id">Reset Password</a>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+    <div id="myModal1" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            @using (Html.BeginForm("CreateBuyer", "Manage", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                <!-- Modal content-->
+                <div class="modal-content" id="loadLoaiSP">
+                    <div class="modal-header">
+                        <h4 class="modal-title">THÊM MỚI KHÁCH HÀNG</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <div class="col-5">
+                                <label>Họ Tên:</label>
+                            </div>
+                            <div class="col-6">
+                                <input type="text" name="hoten" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-5">
+                                <label>Tài khoản:</label>
+                            </div>
+
+                            <div class="col-6">
+                                <input type="text" name="username" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-5">
+                                <label>Mật Khẩu:</label>
+                            </div>
+
+                            <div class="col-6">
+                                <input type="text" name="password" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-5">
+                                <label>EMAIL:</label>
+                            </div>
+                            <div class="col-6">
+                                <input type="email" name="email" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-5">
+                                <label>Số điện thoại:</label>
+                            </div>
+
+                            <div class="col-6">
+                                <input type="text" name="phone" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-5">
+                                <label>ĐƯỜNG:</label>
+                            </div>
+
+                            <div class="col-6">
+                                <input type="text" name="street" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-5">
+                                <label>PHƯỜNG/XÃ:</label>
+                            </div>
+
+                            <div class="col-6">
+                                <input type="text" name="ward" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-5">
+                                <label>QUẬN/HUYỆN:</label>
+                            </div>
+
+                            <div class="col-6">
+                                <input type="text" name="district" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-5">
+                                <label>TỈNH/TP:</label>
+                            </div>
+
+                            <div class="col-6">
+                                <input type="text" name="province" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-success" value="Cập Nhật">
+                            <small><button type="button" class="btn btn-danger" data-dismiss="modal">Close</button></small>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Areas/Manage/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        function EditTaiKhoan(id_taikhoan) {
+            $.ajax({
+                url: "/Manage/Manage/Get_TaiKhoan_id/?tk=" + id_taikhoan,
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+
+                    $('#user').val(result.username);
+                    $('#id_taikhoan').val(result.id_taikhoan);
+                    $('#ressetPass').html('<a class="btn btn-secondary" href="../Customer/ResetPassword/' + result.id_taikhoan + '">Reset Password</a>');
+                    $('#updatePassVip').html('<a class="btn btn-info" href="../Customer/UpdateAdmin/' + result.id_taikhoan + '">Nâng Cấp</a>');
+                    //alert('<a class="btn btn-dark" href="../ Manage / Manage / ResetPassword / ' + result.id_taikhoan + '">Reset Password</a>');
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+        }
+    </script>
+    <script>
+    $(document).ready(function () {
+        action_alert();
+    })
+    function action_alert() {
+        var notify = @ViewBag.notify;
+        console.log(notify);
+        var action = "@ViewBag.action";
+        console.log(action);
+    @{ViewBag.notify = null;
+      ViewBag.action = null; }
+        if (notify == -1) {
+            alert_(action, "fail");
+            notify = 0;
+            }
+    else if (notify == 1) {
+            alert_(action, "success");
+            notify = 0;
+        }
+        setTimeout(function () { window.location.replace("https://localhost:44372/Manage/Customer/QuanLyKhachHang"); }, 3000);
+
+    }
+    function alert_(title, type) {
+        debugger;
+        var element = document.getElementById("kh");
+        element.classList.add("none");
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+
+        })
+        switch (type) {
+            case "success":
+                Toast.fire({
+                    icon: 'success',
+                    title: title
+                })
+                break;
+            case "fail":
+                Toast.fire({
+                    icon: 'error',
+                    title: title
+                })
+                break;
+            default:
+            // code block
+        }
+    }
+    </script>
+
+    <style>
+        .table-pager > td > a {
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 3px 7px;
+            border-radius: 50% !important;
+        }
+
+            .table-pager > td > a:hover {
+                background-color: #f0f0f0;
+            }
+
+        .table-pager > .active > a {
+            z-index: 3;
+            color: #fff;
+            border-color: #5e72e4;
+            background-color: #5e72e4;
+        }
+
+        .none {
+            cursor: none;
+        }
+    </style>

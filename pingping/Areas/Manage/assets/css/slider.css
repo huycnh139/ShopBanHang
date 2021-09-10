@@ -1,0 +1,497 @@
+﻿.hero-slider {
+    background: #fff;
+    overflow: hidden;
+}
+
+    .hero-slider .single-slider {
+        height: auto;
+        /*background-image: url('../../Source/Images/slider-1900x700.jpg');*/
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 90%;
+    }
+
+    .hero-slider .text-inner {
+    }
+
+    .hero-slider .hero-text {
+        padding: 0 30px;
+        margin-top: 100px;
+    }
+
+        .hero-slider .hero-text h1 {
+            line-height: 50px;
+            font-size: 47px;
+            font-weight: 700;
+            color: #F7941D;
+            margin-bottom: 20px;
+        }
+
+            .hero-slider .hero-text h1 span {
+                font-size: 20px;
+                display: block;
+                margin-bottom: 12px;
+                color: white;
+                font-weight: 700;
+                line-height: initial;
+            }
+
+        .hero-slider .hero-text p {
+            color: #e2e3e6;
+            margin-bottom: 35px;
+        }
+
+        .hero-slider .hero-text .button {
+            margin: 0;
+        }
+
+        .hero-slider .hero-text .btn {
+            color: #fff;
+            background: #333;
+            padding: 13px 30px;
+            line-height: initial;
+            border: none;
+            height: auto;
+            z-index: 0;
+        }
+
+            .hero-slider .hero-text .btn:hover {
+                background: #F7941D;
+                color: #fff;
+            }
+/* Start Hero Area 2 CSS */
+.hero-area2 {
+    position: relative;
+}
+
+    .hero-area2 .single-slider.overlay:before {
+        background: #F7941D;
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.9);
+    }
+
+    .hero-area2 .single-slider.overlay:hover:before {
+        opacity: 0.9;
+        visibility: visible;
+        transform: scale(1);
+    }
+
+    .hero-area2 .single-slider {
+        height: 500px;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+        .hero-area2 .single-slider .content {
+            position: relative;
+        }
+
+        .hero-area2 .single-slider .content {
+            width: 100%;
+            padding: 15px;
+            z-index: 2;
+            -webkit-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+            text-align: center;
+            padding-top: 120px;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(1.1);
+        }
+
+        .hero-area2 .single-slider:hover .content {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+
+        .hero-area2 .single-slider .content .sub-title {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .hero-area2 .single-slider .content .title {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 24px;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .hero-area2 .single-slider .content .des {
+            color: #fff;
+        }
+
+        .hero-area2 .single-slider .content .button {
+        }
+
+            .hero-area2 .single-slider .content .button .btn {
+                padding: 9px 25px;
+                border: 2px solid #fff;
+                background: transparent;
+                color: #fff;
+                margin-top: 25px;
+            }
+
+                .hero-area2 .single-slider .content .button .btn:hover {
+                    background: #fff;
+                    color: #333;
+                    border-color: transparent;
+                }
+    /* Owl Nav CSS */
+    .hero-area2 .owl-carousel .owl-nav {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        margin-top: -30px;
+    }
+
+        .hero-area2 .owl-carousel .owl-nav div {
+            height: 60px;
+            width: 40px;
+            line-height: 60px;
+            text-align: center;
+            background: #333;
+            color: #fff;
+            font-size: 14px;
+            position: absolute;
+            margin: 0;
+            -webkit-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+            padding: 0;
+            border-radius: 0;
+        }
+
+            .hero-area2 .owl-carousel .owl-nav div:hover {
+                background: #F7941D;
+                color: #fff;
+            }
+
+    .hero-area2 .owl-carousel .owl-controls .owl-nav .owl-prev {
+        left: 0;
+    }
+
+    .hero-area2 .owl-carousel .owl-controls .owl-nav .owl-next {
+        right: 0;
+    }
+/* Hero Area 3 */
+.hero-area3 {
+}
+
+    .hero-area3 .big-content {
+        background-image: url('https://via.placeholder.com/850x530');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 511px;
+        margin-top: 30px;
+        position: relative;
+    }
+
+        .hero-area3 .big-content .inner {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            padding: 0 50px 0 360px;
+            transform: translateY(-50%);
+        }
+
+        .hero-area3 .big-content .title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: capitalize;
+            line-height: 37px;
+        }
+
+            .hero-area3 .big-content .title span {
+                color: #F7941D;
+            }
+
+        .hero-area3 .big-content .des {
+        }
+
+        .hero-area3 .big-content .button {
+            margin-top: 40px;
+            display: block;
+        }
+
+            .hero-area3 .big-content .button .btn {
+                color: #fff;
+            }
+
+    .hero-area3 .small-content {
+        height: 240px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-top: 30px;
+        position: relative;
+    }
+
+        .hero-area3 .small-content.first {
+            background-image: url('https://via.placeholder.com/450x300');
+        }
+
+        .hero-area3 .small-content.secound {
+            background-image: url('https://via.placeholder.com/450x300');
+        }
+
+        .hero-area3 .small-content .inner {
+            padding: 30px;
+            text-align: right;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        .hero-area3 .small-content .title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+            .hero-area3 .small-content .title span {
+                color: #F7941D;
+            }
+
+        .hero-area3 .small-content .des {
+        }
+
+        .hero-area3 .small-content .button {
+            margin-top: 10px;
+            display: block;
+        }
+
+            .hero-area3 .small-content .button .btn {
+                background: transparent;
+                padding: 0;
+                color: #333;
+                border-bottom: 2px solid #333;
+                font-size: 13px;
+            }
+
+                .hero-area3 .small-content .button .btn:hover {
+                    color: #F7941D;
+                    border-color: #F7941D;
+                }
+/* Hero Area 4 */
+.hero-area4 .big-content {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 510px;
+    margin-top: 30px;
+    position: relative;
+}
+
+    .hero-area4 .big-content .inner {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        padding: 0 80px 0 50px;
+        transform: translateY(-50%);
+    }
+
+    .hero-area4 .big-content .title {
+        font-size: 32px;
+        margin-bottom: 20px;
+        font-weight: 700;
+        text-transform: capitalize;
+        line-height: 35px;
+    }
+
+        .hero-area4 .big-content .title span {
+            color: #F7941D;
+        }
+
+    .hero-area4 .big-content .des {
+    }
+
+    .hero-area4 .big-content .button {
+        margin-top: 40px;
+        display: block;
+    }
+
+        .hero-area4 .big-content .button .btn {
+            color: #fff;
+        }
+
+.hero-area4 .owl-carousel .owl-nav {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin-top: -20px;
+}
+
+    .hero-area4 .owl-carousel .owl-nav div {
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: #333;
+        color: #fff;
+        font-size: 14px;
+        position: absolute;
+        margin: 0;
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+        padding: 0;
+        border-radius: 0;
+    }
+
+        .hero-area4 .owl-carousel .owl-nav div:hover {
+            background: #F7941D;
+            color: #fff;
+        }
+
+.hero-area4 .owl-carousel .owl-controls .owl-nav .owl-prev {
+    left: 0;
+}
+
+.hero-area4 .owl-carousel .owl-controls .owl-nav .owl-next {
+    right: 0;
+}
+
+.small-banner {
+    padding: 30px 0;
+    padding-bottom: 0;
+}
+
+    .small-banner .single-banner {
+        overflow: hidden;
+        position: relative;
+    }
+
+        .small-banner .single-banner img {
+            height: 100%;
+            width: 100%;
+            -webkit-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+        .small-banner .single-banner .content {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            padding-left: 35px;
+        }
+
+        .small-banner .single-banner h3 {
+            font-size: 22px;
+            font-weight: 700;
+            text-transform: capitalize;
+            color: white;
+        }
+
+            .small-banner .single-banner h3 span {
+                color: #F7941D;
+            }
+
+        .small-banner .single-banner p {
+            font-size: 14px;
+            color: #F7941D;
+            font-weight: 500;
+            margin-bottom: 5px;
+            text-transform: capitalize;
+        }
+
+        .small-banner .single-banner a {
+            color: #333;
+            margin-top: 22px;
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+            text-transform: uppercase;
+            border-bottom: 2px solid #333;
+        }
+
+            .small-banner .single-banner a:hover {
+                color: #F7941D;
+                border-color: #F7941D;
+            }
+
+.midium-banner {
+    padding: 0;
+}
+
+    .midium-banner .single-banner {
+        position: relative;
+    }
+
+        .midium-banner .single-banner img {
+            height: 100%;
+            width: 100%;
+            -webkit-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+        .midium-banner .single-banner .content {
+            padding-left: 50px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .midium-banner .single-banner h3 {
+            font-size: 27px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #333;
+            line-height: 30px;
+        }
+
+            .midium-banner .single-banner h3 span {
+                color: #F7941D;
+            }
+
+        .midium-banner .single-banner p {
+            font-size: 13px;
+            color: #F7941D;
+            font-weight: 500;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .midium-banner .single-banner a {
+            display: inline-block;
+            font-weight: 600;
+            text-align: center;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            padding: .375rem .75rem;
+            font-size: 13px;
+            border-radius: .25rem;
+            background: #333;
+            color: #fff !important;
+            padding: 10px 27px;
+            border-radius: 30px;
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
+
+            .midium-banner .single-banner a:hover {
+                background: #F7941D;
+                color: #fff;
+            }

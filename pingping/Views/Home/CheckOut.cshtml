@@ -1,0 +1,324 @@
+﻿@model pingping.Models.MyOrder_Model
+@{
+    ViewBag.Title = "Giỏ Hàng";
+}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="index1.html">Trang Chủ<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="blog-single.html">@ViewBag.Title</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!-- Shopping Cart -->
+<div class="shopping-cart section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Shopping Summery -->
+                @if (ViewBag.Messager == "Đăng Xuất")
+                {
+                    <div class="row">
+                        <div class="col-lg-9"></div>
+                        <div class="col-lg-3 text-right">
+                            <a href="~/Home/MyOrder" style="color:lightseagreen;margin-bottom:2%"><strong>Đơn Hàng</strong></a>
+                        </div>
+                    </div>
+                }
+                @if (Model != null)
+                {
+                    <table class="table shopping-summery bill">
+                        <thead>
+                            <tr class="main-hading">
+                                <th>Sản Phẩm</th>
+                                <th>Tên</th>
+                                <th class="text-center">Đơn Giá</th>
+                                <th class="text-center">Size</th>
+                                <th class="text-center">Màu</th>
+                                <th class="text-center">Số Lượng</th>
+                                <th class="text-center">Tổng</th>
+                                <th class="text-center"><i class="ti-trash remove-icon"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var hdct in Model.hoadonct_)
+                            {
+                                double? gia = 0, sum = 0;
+                                foreach (var sp in Model.sanpham_)
+                                {
+                                    if (hdct.id_sanpham == sp.id_sanpham)
+                                    {
+                                        gia = sp.dongia;
+                                        <tr id="loadHoaDon_@hdct.id_hoadonct">
+                                            <td class="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#"></td>
+                                            <td class="product-des" data-title="Description">
+                                                <p class="product-name"><a href="~/Home/SingleProcduct/@sp.id_sanpham">@sp.tensp</a></p>
+                                                <p class="product-des">@sp.thongtin</p>
+                                            </td>
+                                            <td class="price" data-title="Price"><span>@sp.dongia.ToString("#,##") VNĐ</span></td>
+                                            <td class="price">
+                                                <select id="select_size" class="form-control" onchange="LoadColor_(value)">
+                                                    @foreach (var s in Model.size_)
+                                                    {
+                                                        if (sp.id_sanpham == s.id_sanpham)
+                                                        {
+                                                            if (hdct.id_size == s.id_size)
+                                                            {
+                                                                <option value="@s.id_size @hdct.id_hoadonct" name="@hdct.id_hoadonct" selected>@s.size</option>
+                                                            }
+                                                            else
+                                                            {
+                                                                <option value="@s.id_size @hdct.id_hoadonct" name="@hdct.id_hoadonct">@s.size</option>
+                                                            }
+                                                        }
+                                                    }
+                                                </select>
+                                            </td>
+                                            <td class="price">
+                                                <input id="id_color_@hdct.id_hoadonct" hidden />
+                                                <span id="select_@hdct.id_hoadonct">@hdct.color</span>
+                                                <div id="loadColor_@hdct.id_hoadonct"></div>
+                                            </td>
+                                            <td>
+                                                <!-- Input Order -->
+                                                <div class="input-group">
+                                                    <input type="number" id="quantity_@hdct.id_hoadonct" max="100" min="1" value="@hdct.soluong" />
+                                                </div>
+                                                <!--/ End Input Order -->
+                                            </td>
+                                            <td class="total-amount" data-title="Total"><span id="Total_@hdct.id_hoadonct">@((hdct.soluong * hdct.dongia)?.ToString("#,##")) VNĐ</span></td>
+                                            <td class="action" data-title="Remove"><a href="#" onclick="removeItem(@hdct.id_hoadonct,@hdct.id_hoadon)"><i class="ti-trash remove-icon"></i></a></td>
+                                            <td class="combat" hidden>@(hdct.soluong * hdct.dongia)</td>
+                                        </tr>
+                                        break;
+                                    }
+                                }
+
+                                <script>
+
+                                //var input1 = 1;
+                                const input_@hdct.id_hoadonct = document.getElementById('quantity_@hdct.id_hoadonct'); //quantity
+                                const log_@hdct.id_hoadonct = document.getElementById('Total_@hdct.id_hoadonct');
+
+
+
+                                (input_@hdct.id_hoadonct).addEventListener('input', updateValue);
+
+                                function updateValue(e) {
+                                    (log_@hdct.id_hoadonct).textContent = (Number(e.target.value) * (@gia)).toLocaleString('vi', { style: 'currency', currency: 'VND' });
+
+                                    updateItem(@hdct.id_hoadonct,@hdct.id_hoadon, Number(e.target.value));
+                                }
+                                function removeItem(id_hdct,id_hoadon) {
+                                    $.ajax({
+                                        url: "/Home/Bill_Deleted?id=" + id_hdct + "&&hd=" + id_hoadon,
+                                        type: "GET",
+                                        contentType: "application/json;charset=utf-8",
+                                        dataType: "json",
+                                        success: function (result) {
+                                            if (result == 0) { alert("Error.") }
+                                            else {
+                                                $('#CartSubtotal').html(Number(result).toLocaleString('vi', { style: 'currency', currency: 'VND' }));
+                                            }
+                                        },
+                                        error: function (errormessage) {
+                                            alert(errormessage.responseText);
+                                        }
+                                    });
+                                    $('#loadHoaDon_' + id_hdct).hide(1500);x
+                                }
+                                function updateItem(id_hdct,id_hd,soluong) {
+                                    $.ajax({
+                                        url: "/Home/Bill_Update?id=" + id_hdct + "&&hd=" + id_hd + "&&l=" + soluong,
+                                        type: "GET",
+                                        contentType: "application/json;charset=utf-8",
+                                        dataType: "json",
+                                        success: function (result) {
+                                            if (result == 0) { alert("Error.") }
+                                            else {
+                                                $('#CartSubtotal').html(Number(result).toLocaleString('vi', { style: 'currency', currency: 'VND' }));
+                                            }
+                                        },
+                                        error: function (errormessage) {
+                                            alert(errormessage.responseText);
+                                        }
+                                    });
+                                }
+                                </script>
+                            }
+                        </tbody>
+                        <!--/ End Shopping Summery -->
+                    </table>
+                }
+                else
+                {
+                    <div class="alert-info shopping-summery bill">
+                        <h4 class="alert-heading center">Chưa có đơn hàng nào.</h4>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- Total Amount -->
+                <div class="total-amount">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-5 col-12">
+                            <div class="left">
+                                <div class="coupon">
+                                    <form action="#" target="_blank">
+                                        <input name="Coupon" id="txtCoupon" placeholder="Sử Dụng Coupon">
+                                        <button class="btn" onclick="UseCoupon()">Sử Dụng</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-7 col-12">
+                            <div class="right">
+                                <ul>
+                                    <li>Tổng<span id="CartSubtotal">0</span></li>
+                                    <li>Shipping<span>Free</span></li>
+                                    <li>Mã Giảm<span id="giam">@ViewBag.giam.ToString("#,##") VNĐ</span></li>
+                                    <li class="last">Thanh Toán<span id="youpay">@ViewBag.youpay.ToString("#,##") VNĐ</span></li>
+                                </ul>
+                                <div class="button5">
+                                    <a href="@Url.Action("payment")" class="btn">Checkout</a>
+                                    <a href="@Url.Action("trangchu")" class="btn">Continue shopping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ End Total Amount -->
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ End Shopping Cart -->
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    var sum_ = 0;
+    $(document).ready(function () {
+        $('.all-category').hide();
+        $('#form-shipping').hide();
+        //LoadBill("Chưa Thanh Toán");
+
+        //$('.nice-select').hide(); 
+        //$('#select_size').show();
+        $('.ghn').hide(); $('.ghtk').hide();
+        
+        var sum = 0;
+        $('tr').find('.combat').each(function () {
+            var combat = $(this).text();
+            if (!isNaN(combat) && combat.length !== 0) {
+                sum += parseFloat(combat);
+                sum_ = sum;
+            }
+        });
+
+        $('#CartSubtotal').html(sum.toLocaleString('vi', { style: 'currency', currency: 'VND' }));
+        
+
+    });
+    function GetHoaDonCT_id(id_hdct,html) {
+        $.ajax({
+            url: "/Home/GetHoaDonCT_id?id=" + id_hdct,
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                if (result == 0) { alert("Error Load Color.") }
+                else {
+                    $('#loadColor_'+result).html(html + '</select>'); 
+                //$('#myTab').html(tab);
+                }
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+    }
+
+    var si = 0; var hd = 0;
+    function LoadColor_(id_size) {
+        //$('#id_size').val(id_size);
+        //console.log("id_size " + id_size);
+        var id_size1 = id_size.split(/-| /)[0];
+        var id_hdct1 = id_size.split(/-| /)[1];
+
+        si = Number(id_size1);
+        hd = Number(id_hdct1);
+
+        //alert(id_hdct1);
+        $.ajax({
+        url: '@Url.Action("Get_Color_Size_id", "Home")',
+        type: 'GET',
+        dataType: 'json',
+        data: { id_size: id_size1 },
+        success: function (data) {
+            var html = '<select onchange="GetColor_(value)" class="nice-select">';
+            html += '<option value="0" selected="selected"> Chọn màu</option>';
+            data.forEach(function (value, key) {
+                html += '<option value="' + value.color1 + '">' + value.color1 + '</option>';
+            });
+            $('#select' + id_hdct1).hide();
+            $('#loadColor_' + id_hdct1).html(html + '</select>'); 
+        },
+        error: function (ex) {
+            var r = jQuery.parseJSON(response.responseText);
+            alert("Message: " + r.Message);
+            alert("StackTrace: " + r.StackTrace);
+            alert("ExceptionType: " + r.ExceptionType); 
+        }
+    });
+    }
+    function GetColor_(color) {
+        $('#id_color').val(color);
+
+        console.log("Color" + color + "Id_size:" + si + ",id_hdct:" + hd);
+
+        $.ajax({
+            url: "/Home/Update_HDCT?id_hdct=" + hd + "&&id_size=" + si + "&&color=" + color,
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                if (result == 0) { alert("ERROR"); }
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+        $('#select_' + hd).hide();
+    }
+    function UseCoupon() {
+        $.ajax({
+            url: "/Home/UseCoupon?mcp="+ $('#txtCoupon').val(),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                if (result == 0) { alert("Chưa có đơn hàng hoặc chưa đăng nhập."); }
+                else if (result == -1) { alert("ERROR"); }
+                else {
+                    location.reload();
+                }
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+    }
+</script>

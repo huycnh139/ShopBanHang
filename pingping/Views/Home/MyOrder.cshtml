@@ -1,0 +1,153 @@
+﻿@using Modal.EF
+@model List<HoaDonCT>
+@{
+    ViewBag.Title = "MyOrder";
+}
+@if (Model == null || Model.Count == 0)
+{
+    <h1 class="alert-danger">Đơn Hàng Đã Mua Trống!</h1>
+}
+else
+{
+    <section id="contact-us" class="contact-us section">
+        <div class="container">
+            <div class="contact-head">
+                <div class="row">
+                    <div class="col-lg-12 col-12">
+                        <div class="form-main">
+                            <div class="title">
+                                <h3 style="color:#fd7e14;">Đơn Hàng của tôi</h3>
+                            </div>
+                            @foreach (var hd in Model.GroupBy(n => n.HoaDon))
+                            {
+                                if (hd.Key.hinhthuctt=="GHN"&&hd.Key.trangthaigh!="Nhận Hàng Thành Công")
+                                {
+                                    <hr />
+                                    <div class="content" style="margin-top:35px">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-12">
+                                                <label>Đơn hàng: </label><span>#@hd.Key.id_hoadon</span><br />
+                                                <label>Đặt Ngày: </label><span>@hd.Key.thoigian</span><br />
+                                                <label>Tổng Giá: </label><span style="color:#ff0000">@hd.Key.tonggia.Value.ToString("##,#") đồng</span>
+                                            </div>
+                                            <div class="col-lg-6" style="text-align:right">
+                                                <i class="ti ti-truck" style="color:red;width:6em"></i>
+                                                <a href="#" style="color:lightseagreen">@hd.Key.trangthaigh</a>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                ------
+                                            </div>
+                                        </div>
+                                        @foreach (var hdct in hd)
+                                        {
+                                            <div class="row" style="margin-top:10px">
+                                                <div class="col-lg-1 col-12">
+                                                    <img src="~/Source/img-public/@hdct.SanPham.hinhanh1" alt="..." class="img-thumbnail">
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <label>Sản Phẩm: <span>@hdct.SanPham.tensp</span></label>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <label>SL: <span>@hdct.soluong</span></label>
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <label>Màu: <span>@hdct.color</span></label>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    @{IEnumerable<Size> listSize = (IEnumerable<Size>)ViewBag.lstSize;
+                                                        string size = "";
+                                                        foreach (var s in listSize)
+                                                        {
+                                                            if (s != null && hdct.id_size == s.id_size)
+                                                            {
+                                                                size = s.size;
+                                                            }
+                                                        }
+                                                        if (size == "")
+                                                        {
+                                                            size = "";
+                                                        }
+                                                        <label>Size: <span>@size</span></label>
+                                                    }
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <label>Tình Trạng: <span class="text-success">@hd.Key.hinhthuctt</span></label>
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <label>Đơn Giá: <span>@hdct.dongia.Value.ToString("##,#") đ</span></label>
+                                                </div>
+                                            </div>
+                                        }
+
+
+
+                                    </div>
+                                }
+
+                            }
+                            @foreach (var hd in Model.GroupBy(n => n.HoaDon))
+                            {
+                                if (hd.Key.trangthai == "Đã Thanh Toán" &&(hd.Key.trangthaigh==null||hd.Key.trangthaigh=="Nhận Hàng Thành Công"))
+                                {
+                                    <hr />
+                                    <div class="content" style="margin-top:35px">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-12">
+                                                <label>Đơn hàng: </label><span>#@hd.Key.id_hoadon</span><br />
+                                                <label>Đặt Ngày: </label><span>@hd.Key.thoigian</span><br />
+                                                <label>Tổng Giá: </label><span style="color:#ff0000">@hd.Key.tonggia.Value.ToString("##,#") đồng</span>
+                                            </div>
+                                            <div class="col-lg-6" style="text-align:right">
+                                                <a href="#" style="color:lightseagreen">Đã Mua</a>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                -------
+                                            </div>
+                                        </div>
+                                        @foreach (var hdct in hd)
+                                        {
+                                            <div class="row" style="margin-top:10px">
+                                                <div class="col-lg-1 col-12">
+                                                    <img src="~/Source/img-public/@hdct.SanPham.hinhanh1" alt="..." class="img-thumbnail">
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <label>Sản Phẩm: <span>@hdct.SanPham.tensp</span></label>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <label>SL: <span>@hdct.soluong</span></label>
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <label>Màu: <span>@hdct.color</span></label>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <label>Size: <span>@hdct.id_size</span></label>
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <label>Tình Trạng: <span class="text-success">@hd.Key.hinhthuctt</span></label>
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <label>Đơn Giá: <span>@hdct.dongia.Value.ToString("##,#") đ</span></label>
+                                                </div>
+                                            </div>
+                                        }
+
+
+
+                                    </div>
+                                }
+
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    </section>
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //hiden nav Product
+        $('.all-category').hide();
+    })
+</script>

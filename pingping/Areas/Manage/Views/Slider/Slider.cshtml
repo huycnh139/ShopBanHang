@@ -1,0 +1,703 @@
+﻿@using Modal.EF
+@{
+    ViewBag.Title = "Slider";
+}
+
+<link href="~/Areas/Manage/assets/css/slider.css" rel="stylesheet" />
+@{IEnumerable<Slider> lstslider = (IEnumerable<Slider>)ViewBag.slider;}
+<!-- Header -->
+<div class="main-content-sm" id="panel" style="margin-top:-4%">
+    <!-- Topnav -->
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Search form -->
+                <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+                    <div class="form-group mb-0">
+                        <div class="input-group input-group-alternative input-group-merge">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Search" id="reSearch" type="text">
+                        </div>
+                    </div>
+                    <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </form>
+                <!-- Navbar links -->
+                <ul class="navbar-nav align-items-center  ml-md-auto ">
+                    <li class="nav-item d-xl-none">
+                        <!-- Sidenav toggler -->
+                        <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+                            <div class="sidenav-toggler-inner">
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-sm-none">
+                        <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
+                            <i class="ni ni-zoom-split-in"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="ni ni-bell-55"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
+                            <!-- Dropdown header -->
+                            <div class="px-3 py-3">
+                                <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
+                            </div>
+                            <!-- List group -->
+                            <div class="list-group list-group-flush">
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-1.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>2 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-2.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>3 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-3.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>5 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">Your posts have been liked a lot.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-4.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>2 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-5.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>3 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- View all -->
+                            <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="ni ni-ungroup"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
+                            <div class="row shortcuts px-4">
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-red">
+                                        <i class="ni ni-calendar-grid-58"></i>
+                                    </span>
+                                    <small>Calendar</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-orange">
+                                        <i class="ni ni-email-83"></i>
+                                    </span>
+                                    <small>Email</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-info">
+                                        <i class="ni ni-credit-card"></i>
+                                    </span>
+                                    <small>Payments</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-green">
+                                        <i class="ni ni-books"></i>
+                                    </span>
+                                    <small>Reports</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
+                                        <i class="ni ni-pin-3"></i>
+                                    </span>
+                                    <small>Maps</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
+                                        <i class="ni ni-basket"></i>
+                                    </span>
+                                    <small>Shop</small>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="media align-items-center">
+                                <span class="avatar avatar-sm rounded-circle">
+                                    <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-4.jpg">
+                                </span>
+                                <div class="media-body  ml-2  d-none d-lg-block">
+                                    <span class="mb-0 text-sm  font-weight-bold">@ViewBag.HoTen</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu  dropdown-menu-right ">
+                            <div class="dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Welcome!</h6>
+                            </div>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-single-02"></i>
+                                <span>My profile</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-settings-gear-65"></i>
+                                <span>Settings</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-calendar-grid-58"></i>
+                                <span>Activity</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-support-16"></i>
+                                <span>Support</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-user-run"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="header bg-primary pb-6">
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row align-items-center py-4">
+                    <div class="col-lg-6 col-7">
+                        <h6 class="h2 text-white d-inline-block mb-0">Slider</h6>
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#">Trang Chủ</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Slider</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6" id="sl">
+        <div class="row">
+            <div class="col">
+                <div class="card" id="slider1">
+
+                    <!-- Card header -->
+                    <div class="card-header border-0">
+                        <label class="mb-0" style="text-align:left;font-size:medium;font-weight:bold;">Slider Head</label>
+                        <label class="col-2" style="margin-left:90%"><input type="button" class="btn btn-outline-primary" value="Xem" id="xem1" /></label>
+                        <label class="col-2" style="margin-left:90%"><input type="button" class="btn btn-outline-danger" style="display:none" value="Đóng" id="dong1" /></label>
+                    </div>
+                    <!-- Light table -->
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <tr class="thead-light">
+                                <th>Hình Ảnh</th>
+                                <th>Tiêu Đề</th>
+                                <th>Nội Dung</th>
+                                <th>Giảm Giá</th>
+                                <th></th>
+                            </tr>
+                            <tr class="list">
+                                @foreach (var item in lstslider)
+                                {
+                                    if (item.id_slider == 1)
+                                    {
+                                        <th><img width="150" height="120" src="@Url.Content("~/Source/Images/"+item.image)" /></th>
+                                        <th>@item.title</th>
+                                        <th>@Html.Raw(item.description)</th>
+                                        <th>@item.sale</th>
+                                        <th>@Html.ActionLink("Thay Đổi", "#", new { id = item.id_slider }, new { @class = "btn btn-block", data_toggle = "modal", data_target = "#editslider_" + item.id_slider })</th>
+                                        break;
+                                    }
+                                }
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="card" id="slider2">
+                    <!-- Card header -->
+                    <div class="card-header border-0">
+                        <label class="mb-0" style="text-align:left;font-size:medium;font-weight:bold;">Slider Middler</label>
+                        <label class="col-2" style="margin-left:90%"><input type="button" class="btn btn-outline-primary" value="Xem" id="xem2" /></label>
+                        <label class="col-2" style="margin-left:90%;"><input type="button" class="btn btn-outline-danger" style="display:none;" value="Đóng" id="dong2" /></label>
+                    </div>
+                    <!-- Light table -->
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <tr class="thead-light">
+                                <th>Hình Ảnh</th>
+                                <th>Tiêu Đề</th>
+                                <th>Nội Dung</th>
+                                <th></th>
+                            </tr>
+                            @foreach (var item in lstslider)
+                            {
+                                <tr class="list">
+                                    @if (item.id_slider > 1 && item.id_slider < 5)
+                                    {
+                                        <th><img width="150" height="120" src="@Url.Content("~/Source/Images/" + item.image)" /></th>
+                                        <th>@item.title</th>
+                                        <th>@Html.Raw(item.description)</th>
+                                        <th>@Html.ActionLink("Thay Đổi", "#", new { id = item.id_slider }, new { @class = "btn btn-block", data_toggle = "modal", data_target = "#editslider_" + item.id_slider })</th>
+                                    }
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <div class="card" id="slider3">
+                    <!-- Card header -->
+                    <div class="card-header border-0">
+                        <label class="mb-0" style="text-align:left;font-size:medium;font-weight:bold;">Slider Footer</label>
+                        <label class="col-2" style="margin-left:90%"><input type="button" class="btn btn-outline-primary" value="Xem" id="xem3" /></label>
+                        <label class="col-2" style="margin-left:90%;"><input type="button" class="btn btn-outline-danger" style="display:none;" value="Đóng" id="dong3" /></label>
+                    </div>
+                    <!-- Light table -->
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <tr class="thead-light">
+                                <th>Hình Ảnh</th>
+                                <th>Tiêu Đề</th>
+                                <th>Nội Dung</th>
+                                <th></th>
+                            </tr>
+                            @foreach (var item in lstslider)
+                            {
+                                <tr class="list">
+                                    @if (item.id_slider > 4)
+                                    {
+                                        <th><img width="150" height="120" src="@Url.Content("~/Source/Images/" + item.image)" /></th>
+                                        <th>@item.title</th>
+                                        <th>@Html.Raw(item.description)</th>
+                                        <th>@Html.ActionLink("Thay Đổi", "#", new { id = item.id_slider }, new { @class = "btn btn-block", data_toggle = "modal", data_target = "#editslider_" + item.id_slider })</th>
+                                    }
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @foreach (var item in lstslider)
+    {
+        if (item.id_slider == 1)
+        {
+            <div style="display:none;" id="1">
+                <section class="hero-slider">
+                    <!-- Single Slider -->
+                    <div class="single-slider" style="background-image: url('../../Source/Images/@item.image')">
+                        <div class="container">
+                            <div class="row no-gutters">
+                                <div class="col-lg-9 offset-lg-3 col-12">
+                                    <div class="text-inner">
+                                        <div class="row">
+                                            <div class="col-lg-7 col-12">
+                                                <div class="hero-text">
+                                                    <h1><span>Sale đến @item.sale%</span>@item.title</h1>
+                                                    <p>@Html.Raw(item.description)</p>
+                                                    <div class="button">
+                                                        <a href="#" class="btn">Shop Now!</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ End Single Slider -->
+                </section>
+            </div>
+            break;
+        }
+    }
+    <div style="display:none" id="2">
+        <section class="small-banner section">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <!-- Single Banner  -->
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="single-banner">
+                            @foreach (var item in lstslider)
+                            {
+                                if (item.id_slider == 2)
+                                {
+                                    <img src="~/Source/Images/@item.image" alt="#">
+                                    <div class="content">
+                                        <p>@item.title</p>
+                                        <h3>@Html.Raw(item.description)</h3>
+                                        <a href="#">Shop Now</a>
+                                    </div>
+                                    break;
+                                }
+                            }
+                        </div>
+                    </div>
+                    <!-- /End Single Banner  -->
+                    <!-- Single Banner  -->
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="single-banner">
+                            @foreach (var item in lstslider)
+                            {
+                                if (item.id_slider == 3)
+                                {
+                                    <img src="~/Source/Images/@item.image" alt="#">
+                                    <div class="content">
+                                        <p>@item.title</p>
+                                        <h3>@Html.Raw(item.description)</h3>
+                                        <a href="#">Shop Now</a>
+                                    </div>
+                                    break;
+                                }
+                            }
+                        </div>
+                    </div>
+                    <!-- /End Single Banner  -->
+                    <!-- Single Banner  -->
+                    <div class="col-lg-4 col-12">
+                        <div class="single-banner tab-height">
+                            @foreach (var item in lstslider)
+                            {
+                                if (item.id_slider == 4)
+                                {
+                                    <img src="~/Source/Images/@item.image" alt="#">
+                                    <div class="content">
+                                        <p>@item.title</p>
+                                        <h3>@Html.Raw(item.description)</h3>
+                                        <a href="#">Shop Now</a>
+                                    </div>
+                                    break;
+                                }
+                            }
+                        </div>
+                    </div>
+                    <!-- /End Single Banner  -->
+                </div>
+            </div>
+        </section>
+    </div>
+    <div style="display:none" id="3">
+        <section class="midium-banner">
+            <div class="container">
+                <div class="row trendingitem2">
+                    <!-- Single Banner  -->
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="single-banner">
+                            @foreach (var item in lstslider)
+                            {
+                                if (item.id_slider == 5)
+                                {
+                                    <img src="~/Source/Images/@item.image" alt="#">
+                                    <div class="content">
+                                        <p>@item.title</p>
+                                        <h3 style="color:white;background-color:aqua">@Html.Raw(item.description)</h3>
+                                        <a href="#">Shop Now</a>
+                                    </div>
+                                    break;
+                                }
+                            }
+                        </div>
+                    </div>
+                    <!-- /End Single Banner  -->
+                    <!-- Single Banner  -->
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="single-banner">
+                            @foreach (var item in lstslider)
+                            {
+                                if (item.id_slider == 6)
+                                {
+                                    <img src="~/Source/Images/@item.image" alt="#">
+                                    <div class="content">
+                                        <p>@item.title</p>
+                                        <h3 style="color:white;background-color:aqua">@Html.Raw(item.description)</h3>
+                                        <a href="#">Shop Now</a>
+                                    </div>
+                                    break;
+                                }
+                            }
+                        </div>
+                    </div>
+                    <!-- /End Single Banner  -->
+                </div>
+            </div>
+        </section>
+    </div>
+    @foreach (var item in lstslider)
+    {
+        <div id="editslider_@item.id_slider" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    @using (Html.BeginForm("Slider", "Slider", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                    {
+                        <div class="modal-header">
+                            <h4 class="modal-title">Thay đổi Slider</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group row">
+                                <div class="col-2">
+                                    <label>Tiêu đề:</label>
+                                </div>
+                                <div class="col-10">
+                                    <input type="text" id="idslider" value="@item.id_slider" name="id_slider" class="form-control" hidden />
+                                    <input type="text" id="tieude" value="@item.title" name="title" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-2">
+                                    <label>Thông tin:</label>
+                                </div>
+                                <div class="col-10">
+                                    <div id="thongtin"></div>
+                                    <textarea class="textarea" name="description">@item.description</textarea>
+                                </div>
+                            </div>
+                            @if (item.id_slider == 1)
+                            {
+                                <div class="form-group row">
+                                    <div class="col-2">
+                                        <label>Giảm Giá</label>
+                                    </div>
+                                    <div class="col-10">
+                                        <input type="number" id="giamgia" value="@item.sale" name="sale" placeholder="%" class="form-control" />
+                                    </div>
+                                </div>
+                            }
+                            <div class="form-group row">
+                                <div class="col-2">
+                                    <label>Hình Ảnh:</label>
+                                </div>
+                                <div class="col-10">
+                                    <input type="file" id="hinhanh" value="@item.image" name="hinhanh" accept="image/*" /><br />
+                                    <img src="~/Source/Images/@item.image" height="250px" width="300px" />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-success" value="Thay đổi">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({ selector: '.textarea' });</script>
+    <!-- Footer -->
+    @Html.Partial("_Footer")
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        function EditSlider(id_slider) {
+            $.ajax({
+                url: "/Manage/Manage/Get_Slider_id/?id_slider=" + id_slider,
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    var html = "";
+                    // result.forEach(function (value, key) {
+                    $('#idslider').val(result.id_slider);
+                    $('#tieude').val(result.title);
+                    $('#thongtin').html(result.description);
+                    $('#giamgia').val(result.sale);
+                    $('#ti').html(result.description);
+                    //$("#tinymce").append("<div class='txt'></div>");
+                    //})
+                    //$('#loadLoaiSP').html(html);
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+        }</script>
+
+    <script>
+    $(document).ready(function () {
+        action_alert();
+    })
+    function action_alert() {
+    var notify = @ViewBag.notify;
+    var action = "@ViewBag.action";
+    @{ViewBag.notify = null;
+      ViewBag.action = null; }
+        if (notify == -1) {
+            alert_(action, "fail");
+            notify = 0;
+            }
+    else if (notify == 1) {
+            alert_(action, "success");
+            notify = 0;
+        }
+        setTimeout(function () { window.location.replace("https://localhost:44372/Manage/Slider/Slider"); }, 3000);
+
+    }
+    function alert_(title, type) {
+        debugger;
+        var element = document.getElementById("sl");
+        element.classList.add("none");
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+
+        })
+        switch (type) {
+            case "success":
+                Toast.fire({
+                    icon: 'success',
+                    title: title
+                })
+                break;
+            case "fail":
+                Toast.fire({
+                    icon: 'error',
+                    title: title
+                })
+                break;
+            default:
+            // code block
+        }
+    }
+    </script>
+    <script language="javascript">
+        document.getElementById("xem1").onclick = function () {
+            document.getElementById("dong1").style.display = 'block';
+            document.getElementById("xem1").style.display = 'none';
+            document.getElementById("slider2").style.display = 'none';
+            document.getElementById("slider3").style.display = 'none';
+            document.getElementById("1").style.display = 'block';
+        };
+        document.getElementById("xem2").onclick = function () {
+            document.getElementById("dong2").style.display = 'block';
+            document.getElementById("xem2").style.display = 'none';
+            document.getElementById("slider1").style.display = 'none';
+            document.getElementById("slider3").style.display = 'none';
+            document.getElementById("2").style.display = 'block';
+        };
+        document.getElementById("xem3").onclick = function () {
+            document.getElementById("dong3").style.display = 'block';
+            document.getElementById("xem3").style.display = 'none';
+            document.getElementById("slider1").style.display = 'none';
+            document.getElementById("slider2").style.display = 'none';
+            document.getElementById("3").style.display = 'block';
+        };
+        document.getElementById("dong1").onclick = function () {
+            document.getElementById("dong1").style.display = 'none';
+            document.getElementById("xem1").style.display = 'block';
+            document.getElementById("slider2").style.display = 'block';
+            document.getElementById("slider3").style.display = 'block';
+            document.getElementById("1").style.display = 'none';
+        };
+        document.getElementById("dong2").onclick = function () {
+            document.getElementById("dong2").style.display = 'none';
+            document.getElementById("xem2").style.display = 'block';
+            document.getElementById("slider1").style.display = 'block';
+            document.getElementById("slider3").style.display = 'block';
+            document.getElementById("2").style.display = 'none';
+        };
+        document.getElementById("dong3").onclick = function () {
+            document.getElementById("dong3").style.display = 'none';
+            document.getElementById("xem3").style.display = 'block';
+            document.getElementById("slider2").style.display = 'block';
+            document.getElementById("slider1").style.display = 'block';
+            document.getElementById("3").style.display = 'none';
+        };</script>
+    <style>
+        .none {
+            cursor: none;
+        }
+    </style>

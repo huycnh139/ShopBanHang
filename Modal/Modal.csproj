@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3F76DB48-A6FC-46DC-924E-DC5DE2AB2412}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Modal</RootNamespace>
+    <AssemblyName>Modal</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAO\Color_DAO.cs" />
+    <Compile Include="DAO\Coupon_DAO.cs" />
+    <Compile Include="DAO\DauGia_DAO.cs" />
+    <Compile Include="DAO\GHN_DAO.cs" />
+    <Compile Include="DAO\HoaDonCT_DAO.cs" />
+    <Compile Include="DAO\HoaDon_DAO.cs" />
+    <Compile Include="DAO\LichSuDG_DAO.cs" />
+    <Compile Include="DAO\LoaiSanPham_DAO.cs" />
+    <Compile Include="DAO\LuongTruyCap_DAO.cs" />
+    <Compile Include="DAO\NguoiBan_DAO.cs" />
+    <Compile Include="DAO\NguoiMua_DAO.cs" />
+    <Compile Include="DAO\SanPham_DAO.cs" />
+    <Compile Include="DAO\Size_DAO.cs" />
+    <Compile Include="DAO\Slider_DAO.cs" />
+    <Compile Include="DAO\TaiKhoan_DAO.cs" />
+    <Compile Include="DAO\TheTich_DAO.cs" />
+    <Compile Include="EF\Color.cs" />
+    <Compile Include="EF\Context_.cs" />
+    <Compile Include="EF\Coupon.cs" />
+    <Compile Include="EF\DauGia.cs" />
+    <Compile Include="EF\GHN_Ship.cs" />
+    <Compile Include="EF\HoaDon.cs" />
+    <Compile Include="EF\HoaDonCT.cs" />
+    <Compile Include="EF\LichSuDG.cs" />
+    <Compile Include="EF\LoaiSanPham.cs" />
+    <Compile Include="EF\LuongTruyCap.cs" />
+    <Compile Include="EF\NguoiBan.cs" />
+    <Compile Include="EF\NguoiMua.cs" />
+    <Compile Include="EF\PhieuThanhToan.cs" />
+    <Compile Include="EF\Sale.cs" />
+    <Compile Include="EF\SanPham.cs" />
+    <Compile Include="EF\Size.cs" />
+    <Compile Include="EF\Slider.cs" />
+    <Compile Include="EF\TaiKhoan.cs" />
+    <Compile Include="EF\TheTich.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,603 @@
+﻿@using Modal.EF
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<!-- Header -->
+<script src="~/Areas/Manage/assets/js/multiselect.min.js"></script>
+<link href="~/Areas/Manage/assets/css/multiselect.css" rel="stylesheet" />
+<div class="main-content-sm" id="panel" style="margin-top:-4%">
+    <!-- Topnav -->
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Search form -->
+                <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+                    <div class="form-group mb-0">
+                        <div class="input-group input-group-alternative input-group-merge">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Search" id="reSearch" type="text">
+                        </div>
+                    </div>
+                    <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </form>
+                <!-- Navbar links -->
+                <ul class="navbar-nav align-items-center  ml-md-auto ">
+                    <li class="nav-item d-xl-none">
+                        <!-- Sidenav toggler -->
+                        <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+                            <div class="sidenav-toggler-inner">
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-sm-none">
+                        <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
+                            <i class="ni ni-zoom-split-in"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="ni ni-bell-55"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
+                            <!-- Dropdown header -->
+                            <div class="px-3 py-3">
+                                <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
+                            </div>
+                            <!-- List group -->
+                            <div class="list-group list-group-flush">
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-1.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>2 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-2.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>3 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-3.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>5 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">Your posts have been liked a lot.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-4.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>2 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#!" class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-5.jpg" class="avatar rounded-circle">
+                                        </div>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">@ViewBag.HoTen</h4>
+                                                </div>
+                                                <div class="text-right text-muted">
+                                                    <small>3 hrs ago</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- View all -->
+                            <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="ni ni-ungroup"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
+                            <div class="row shortcuts px-4">
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-red">
+                                        <i class="ni ni-calendar-grid-58"></i>
+                                    </span>
+                                    <small>Calendar</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-orange">
+                                        <i class="ni ni-email-83"></i>
+                                    </span>
+                                    <small>Email</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-info">
+                                        <i class="ni ni-credit-card"></i>
+                                    </span>
+                                    <small>Payments</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-green">
+                                        <i class="ni ni-books"></i>
+                                    </span>
+                                    <small>Reports</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
+                                        <i class="ni ni-pin-3"></i>
+                                    </span>
+                                    <small>Maps</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
+                                        <i class="ni ni-basket"></i>
+                                    </span>
+                                    <small>Shop</small>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="media align-items-center">
+                                <span class="avatar avatar-sm rounded-circle">
+                                    <img alt="Image placeholder" src="~/Areas/Manage/assets/img/theme/team-4.jpg">
+                                </span>
+                                <div class="media-body  ml-2  d-none d-lg-block">
+                                    <span class="mb-0 text-sm  font-weight-bold">@ViewBag.HoTen</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu  dropdown-menu-right ">
+                            <div class="dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Welcome!</h6>
+                            </div>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-single-02"></i>
+                                <span>My profile</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-settings-gear-65"></i>
+                                <span>Settings</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-calendar-grid-58"></i>
+                                <span>Activity</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-support-16"></i>
+                                <span>Support</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-user-run"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="header bg-primary pb-6">
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row align-items-center py-4">
+                    <div class="col-lg-6 col-7">
+                        <h6 class="h2 text-white d-inline-block mb-0">Trang Chủ</h6>
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#">Trang Chủ</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="col-lg-6 col-5 text-right">
+                        <a href="#" class="btn btn-sm btn-neutral fas fa-file-excel" data-toggle="modal" style="color:#006633" data-target="#exportexcel"> Export to Excel</a>
+                    </div>
+                </div>
+                <!-- Card stats -->
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card card-stats">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Sản Phẩm</h5>
+                                        <span class="h2 font-weight-bold mb-0" id="number_products">0</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                                            <i class="ni ni-archive-2"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-sm">
+                                    <span class="text-danger mr-2 text-muted" id="number_products_an">Ẩn: 0</span>
+                                    <span class="text-nowrap"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card card-stats">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Người dùng</h5>
+                                        <span class="h2 font-weight-bold mb-0" id="number_member">0</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                                            <i class="ni ni-circle-08"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-sm">
+                                    <span class="text-success mr-2" id="number_member_ad">Quản Lý: 0</span>
+                                    <span class="text-primary" id="number_member_kh">Khách Hàng: 0</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card card-stats">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Hóa Đơn</h5>
+                                        <span class="h2 font-weight-bold mb-0" id="number_bills">0</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                                            <i class="ni ni-cart"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-sm">
+                                    <span class="text-success mr-2" id="number_bills_ok">Đã Thanh Toán: 0</span>
+                                    <span class="text-danger" id="number_bills_no"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card card-stats">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Đấu Giá</h5>
+                                        <span class="h2 font-weight-bold mb-0" id="number_auctions">0</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                                            <i class="ni ni-money-coins"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-sm">
+                                    <span class="text-success mr-2" id="number_auctions_run">Run: </span>
+                                    <span class="text-danger" id="number_auctions_stop">Stop: </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card bg-gradient-white">
+
+                    @*<div class="card-header bg-transparent">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
+                                    <h5 class="h3 text-white mb-0">Sales value</h5>
+                                </div>
+                                <div class="col">
+                                    <ul class="nav nav-pills justify-content-end">
+                                        <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
+                                            <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
+                                                <span class="d-none d-md-block">Month</span>
+                                                <span class="d-md-none">M</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
+                                            <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                                                <span class="d-none d-md-block">Week</span>
+                                                <span class="d-md-none">W</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>*@
+                    <div class="card-body">
+                        <!-- Chart -->
+                        @{
+                            Html.RenderAction("Chart_Line", "Manage");
+                        }
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-xl-4">
+                    <div class="card">
+                        <div class="card-header bg-transparent">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
+                                    <h5 class="h3 mb-0">Total orders</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <!-- Chart -->
+                            <div class="chart">
+                                <canvas id="chart-bars" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="mb-0">Lượng Truy Cập</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <!-- LuongTruyCap -->
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Trang</th>
+                                    <th scope="col">Khách Vãn Lai</th>
+                                    <th scope="col">Khách Hàng</th>
+                                    <th scope="col">Tỉ Lệ(KH)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{IEnumerable<LuongTruyCap> listLuongTruyCap = (IEnumerable<LuongTruyCap>)ViewBag.listLuongTruyCap;}
+                                @if (listLuongTruyCap != null)
+                                {
+                                    foreach (var i in listLuongTruyCap)
+                                    {
+                                        <tr>
+                                            <th scope="row"><a href="#">/@i.namepage/</a></th>
+                                            <td>@i.soluong_vl</td>
+                                            <td>@i.soluong_kh</td>
+                                            @if ((((float)(i.soluong_kh) / (float)(i.soluong_vl + i.soluong_kh)) * 100) > 0)
+                                            {
+                                                <td><i class="fas fa-arrow-up text-success mr-3"></i>@(((float)(i.soluong_kh) / (float)(i.soluong_vl + i.soluong_kh)) * 100)%</td>
+                                            }
+                                            else
+                                            {
+                                                <td><i class="fas fa-arrow-down text-warning mr-3"></i>@(((float)(i.soluong_kh) / (float)(i.soluong_vl + i.soluong_kh)) * 100)%</td>
+                                            }
+
+                                        </tr>
+                                        @*<i class="fas fa-arrow-down text-warning mr-3"></i>*@
+                                    }
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        @Html.Partial("_Footer")
+    </div>
+</div>
+    <div class="modal fade" id="exportexcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Filter</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @using (Html.BeginForm("DownloadExcel", "Manage", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+                    <div class="modal-body">
+
+                        @{IEnumerable<SanPham> lstsp = (IEnumerable<SanPham>)ViewBag.lstsp;}
+                        <label for="testSelect1" class="col-1 col-form-label">Product</label>
+
+                        <div class="col-7">
+
+                            <select id='testSelect1' name="arr" multiple>
+                                @foreach (var item in lstsp)
+                                {
+                                    <option name="sp" value='@item.id_sanpham'>@item.tensp</option>
+                                }
+                            </select>
+                            <div class="text-danger" id="tb-pro"></div>
+                        </div>
+                        <label for="from-date-input" class="col-5 col-form-label">From Date</label>
+                        <div class="col-7">
+                            <input class="form-control" type="date" name="fromdate" id="from-date-input">
+                            <div class="text-danger" id="tb-dateFrom"></div>
+                        </div>
+                        <label for="to-date-input" class="col-5 col-form-label">To Date</label>
+                        <div class="col-7">
+                            <input class="form-control" type="date" name="todate" id="to-date-input">
+                            <div class="text-danger" id="tb-dateTo"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary" id="btnexcel" value="Export Excel">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    @section scripts{
+        <script>
+            $(document).ready(function () {
+                Count_statistis();
+            })
+
+
+            $("#btnexcel").click(function () {
+                var lstsp = document.getElementsByName("sp");
+                var n = 0;
+                for (var i = 0; i < lstsp.length; i++) {
+                    if (lstsp[i].attributes.selected != null) {
+                        n++;
+                    }
+                }
+                var fromDate = document.getElementById("from-date-input").value;
+                var toDate = document.getElementById("to-date-input").value;
+                if (n == 0)
+                    document.getElementById("tb-pro").innerHTML = "Please select valid product.";
+                else
+                    document.getElementById("tb-pro").value = "";
+                if (fromDate == "") {
+                    document.getElementById("tb-dateFrom").innerHTML = "Please choose valid date to.";
+                    n = 0;
+                }
+                else {
+                    document.getElementById("tb-dateFrom").innerHTML = "";
+                }
+                if (toDate == "") {
+                    document.getElementById("tb-dateTo").innerHTML = "Please choose valid date to.";
+                    n = 0;
+                }
+                else
+                    document.getElementById("tb-dateTo").value = "";
+                if (n > 0) {
+                    $('#exportexcel').modal('hide');
+                    return true;
+                }
+                return false;
+            })
+            function OnChange_Validate() {
+                debugger;
+                if (fromDate != "" && toDate != "") {
+                    var date = document.getElementById("tb-dateTo").innerHTML;
+                    toDate < fromDate ? date = "Please choose valid date to." : date = ""
+                    document.getElementById("to-date-input").value = "";
+                }
+            }
+            document.multiselect('#testSelect1')
+                .setCheckBoxClick("checkboxAll", function (target, args) {
+                    console.log("Checkbox 'Select All' was clicked and got value ", args.checked);
+                })
+                .setCheckBoxClick("1", function (target, args) {
+                    console.log("Checkbox for item with value '1' was clicked and got value ", args.checked);
+                });
+
+            function Count_statistis() {
+                $.ajax({
+                    url: "/Manage/Manage/Count_statistis",
+                    type: "GET",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        if (result != 0) {
+                            $('#number_products').html(result.sp);
+                            $('#number_products_an').html("Ẩn: " + result.sphide);
+
+                            $('#number_member').html(result.mb);
+                            $('#number_member_ad').html("Quản Lý: " + result.mbad);
+                            $('#number_member_kh').html("Khách Hàng: " + result.mbkh);
+
+                            $('#number_bills').html(result.hd);
+                            $('#number_bills_ok').html("Thanh Toán: " + result.hdtt);
+
+                            $('#number_auctions').html(result.dg);
+                            $('#number_auctions_run').html("Run: " + result.dgrun);
+                            $('#number_auctions_stop').html("Stop: " + result.dgstop);
+                            //console.log(result.sp);
+                        }
+                        else {
+                            alert("Thống Kê Lỗi.");
+                        }
+                    },
+                    error: function (errormessage) {
+                        alert(errormessage.responseText);
+                    }
+                });
+            }
+        </script>
+    }

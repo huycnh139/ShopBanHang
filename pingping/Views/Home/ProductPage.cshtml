@@ -1,0 +1,496 @@
+﻿
+@{
+    ViewBag.Title = "Sản Phẩm";
+}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="index1.html">Trang Chủ<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="blog-single.html">@ViewBag.Title</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!-- Product Style -->
+<section class="product-area shop-sidebar shop section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-12">
+                <div class="shop-sidebar">
+                    <!-- Single Widget -->
+                    <div class="single-widget category">
+                        <h3 class="title">Sản Phẩm</h3>
+                        <ul class="categor-list">
+                            <li><a href="#">T-shirts</a></li>
+                            <li><a href="#">jacket</a></li>
+                            <li><a href="#">jeans</a></li>
+                            <li><a href="#">sweatshirts</a></li>
+                            <li><a href="#">trousers</a></li>
+                            <li><a href="#">kitwears</a></li>
+                            <li><a href="#">accessories</a></li>
+                        </ul>
+                    </div>
+                    <!--/ End Single Widget -->
+                    <!-- Shop By Price -->
+                    <div class="single-widget range">
+                        <h3 class="title">Shop by Price</h3>
+                        <div class="price-filter">
+                            <div class="price-filter-inner">
+                                <div id="slider-range"></div>
+                                <div class="price_slider_amount">
+                                    <div class="label-input">
+                                        <span>Range:</span><input type="text" id="amount" name="price" placeholder="Add Your Price" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="check-box-list">
+                            <li>
+                                <label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">$20 - $50<span class="count">(3)</span></label>
+                            </li>
+                            <li>
+                                <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">$50 - $100<span class="count">(5)</span></label>
+                            </li>
+                            <li>
+                                <label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox">$100 - $250<span class="count">(8)</span></label>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/ End Shop By Price -->
+                    <!-- Single Widget -->
+                    <div class="single-widget recent-post">
+                        <h3 class="title">Recent post</h3>
+                        <!-- Single Post -->
+                        <div class="single-post first">
+                            <div class="image">
+                                <img src="https://via.placeholder.com/75x75" alt="#">
+                            </div>
+                            <div class="content">
+                                <h5><a href="#">Girls Dress</a></h5>
+                                <p class="price">$99.50</p>
+                                <ul class="reviews">
+                                    <li class="yellow"><i class="ti-star"></i></li>
+                                    <li class="yellow"><i class="ti-star"></i></li>
+                                    <li class="yellow"><i class="ti-star"></i></li>
+                                    <li><i class="ti-star"></i></li>
+                                    <li><i class="ti-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Single Post -->
+                        <!-- Single Post -->
+                        <div class="single-post first">
+                            <div class="image">
+                                <img src="https://via.placeholder.com/75x75" alt="#">
+                            </div>
+                            <div class="content">
+                                <h5><a href="#">Women Clothings</a></h5>
+                                <p class="price">$99.50</p>
+                                <ul class="reviews">
+                                    <li class="yellow"><i class="ti-star"></i></li>
+                                    <li class="yellow"><i class="ti-star"></i></li>
+                                    <li class="yellow"><i class="ti-star"></i></li>
+                                    <li class="yellow"><i class="ti-star"></i></li>
+                                    <li><i class="ti-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Single Post -->
+                        <!-- Single Post -->
+                        <div class="single-post first">
+                            <div class="image">
+                                <img src="https://via.placeholder.com/75x75" alt="#">
+                            </div>
+                            <div class="content">
+                                <h5><a href="#">Man Tshirt</a></h5>
+                                <p class="price">$99.50</p>
+                                <ul class="reviews">
+                                    <li class="yellow"><i class="ti-star"></i></li>
+                                    <li class="yellow"><i class="ti-star"></i></li>
+                                    <li class="yellow"><i class="ti-star"></i></li>
+                                    <li class="yellow"><i class="ti-star"></i></li>
+                                    <li class="yellow"><i class="ti-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Single Post -->
+                    </div>
+                    <!--/ End Single Widget -->
+                    <!-- Single Widget -->
+                    <div class="single-widget category">
+                        <h3 class="title">Manufacturers</h3>
+                        <ul class="categor-list">
+                            <li><a href="#">Forever</a></li>
+                            <li><a href="#">giordano</a></li>
+                            <li><a href="#">abercrombie</a></li>
+                            <li><a href="#">ecko united</a></li>
+                            <li><a href="#">zara</a></li>
+                        </ul>
+                    </div>
+                    <!--/ End Single Widget -->
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8 col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Shop Top -->
+                        <div class="shop-top">
+                            <div class="shop-shorter">
+                                <div class="single-shorter">
+                                    <label>Show :</label>
+                                    <select>
+                                        <option selected="selected">09</option>
+                                        <option>15</option>
+                                        <option>25</option>
+                                        <option>30</option>
+                                    </select>
+                                </div>
+                                <div class="single-shorter">
+                                    <label>Sort By :</label>
+                                    <select>
+                                        <option selected="selected">Name</option>
+                                        <option>Price</option>
+                                        <option>Size</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <ul class="view-mode">
+                                <li class="active"><a href="shop-grid.html"><i class="fa fa-th-large"></i></a></li>
+                                <li><a href="shop-list.html"><i class="fa fa-th-list"></i></a></li>
+                            </ul>
+                        </div>
+                        <!--/ End Shop Top -->
+                    </div>
+                </div>
+                <div class="row loadProductPage wrap">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="single-product">
+                            <div class="product-img">
+                                <a href="product-details.html">
+                                    <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+                                    <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+                                </a>
+                                <div class="button-head">
+                                    <div class="product-action">
+                                        <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+                                        <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+                                        <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+                                    </div>
+                                    <div class="product-action-2">
+                                        <a title="Add to cart" href="#">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <h3><a href="product-details.html">Women Hot Collection</a></h3>
+                                <div class="product-price">
+                                    <span>$29.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Product Style 1  -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row no-gutters">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <!-- Product Slider -->
+                        <div class="product-gallery">
+                            <div class="quickview-slider-active">
+                                <div class="single-slider">
+                                    <img src="https://via.placeholder.com/569x528" alt="#">
+                                </div>
+                                <div class="single-slider">
+                                    <img src="https://via.placeholder.com/569x528" alt="#">
+                                </div>
+                                <div class="single-slider">
+                                    <img src="https://via.placeholder.com/569x528" alt="#">
+                                </div>
+                                <div class="single-slider">
+                                    <img src="https://via.placeholder.com/569x528" alt="#">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Product slider -->
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class="quickview-content">
+                            <h2>Flared Shift Dress</h2>
+                            <div class="quickview-ratting-review">
+                                <div class="quickview-ratting-wrap">
+                                    <div class="quickview-ratting">
+                                        <i class="yellow fa fa-star"></i>
+                                        <i class="yellow fa fa-star"></i>
+                                        <i class="yellow fa fa-star"></i>
+                                        <i class="yellow fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <a href="#"> (1 customer review)</a>
+                                </div>
+                                <div class="quickview-stock">
+                                    <span><i class="fa fa-check-circle-o"></i> in stock</span>
+                                </div>
+                            </div>
+                            <h3>$29.00</h3>
+                            <div class="quickview-peragraph">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam.</p>
+                            </div>
+                            <div class="size">
+                                <div class="row">
+                                    <div class="col-lg-6 col-12">
+                                        <h5 class="title">Size</h5>
+                                        <select>
+                                            <option selected="selected">s</option>
+                                            <option>m</option>
+                                            <option>l</option>
+                                            <option>xl</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6 col-12">
+                                        <h5 class="title">Color</h5>
+                                        <select>
+                                            <option selected="selected">orange</option>
+                                            <option>purple</option>
+                                            <option>black</option>
+                                            <option>pink</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quantity">
+                                <!-- Input Order -->
+                                <div class="input-group">
+                                    <div class="button minus">
+                                        <button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                            <i class="ti-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" name="quant[1]" class="input-number" data-min="1" data-max="1000" value="1">
+                                    <div class="button plus">
+                                        <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
+                                            <i class="ti-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!--/ End Input Order -->
+                            </div>
+                            <div class="add-to-cart">
+                                <a href="#" class="btn">Add to cart</a>
+                                <a href="#" class="btn min"><i class="ti-heart"></i></a>
+                                <a href="#" class="btn min"><i class="fa fa-compress"></i></a>
+                            </div>
+                            <div class="default-social">
+                                <h4 class="share-now">Share:</h4>
+                                <ul>
+                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a class="youtube" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                    <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal end -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/main/addtocart.js"></script>
+<script>
+    $(document).ready(function () {
+        LoadCategoryProduct();
+        LoadProduct1();
+
+        //hiden nav Product
+        $('.all-category').hide();
+
+    })
+    function LoadCategoryProduct() {
+        $.ajax({
+            url: "/Home/Get_Category",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                var pageproduct = "";
+                result.forEach(function (value, key) {
+                    pageproduct += '<li><a href="#" onclick="LoadCategory_shortname(\'' + value.tenngan + '\')">' + value.tenloai + '</a></li>';
+                    //tab += '<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#' + value.id_loaisp + '" role="tab">' + value.tenloai + '</a></li>';
+                })
+                $('.categor-list').html(pageproduct);
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+    }
+    function a() {
+        var page = 1;
+        $("#wrap > div").slice(0, 7).addClass('page1').css("background", "yellow");
+        $("#wrap > div").slice(7, 14).addClass('page2').css("background", "red").hide();
+        $("#wrap > div").slice(14, 21).addClass('page3').css("background", "blue").hide();
+        var maxPage = 3;
+        $('.next').on('click', function () {
+            if (page < maxPage) {
+                $("#wrap > div:visible").hide();
+                $('.page' + ++page).show();
+            }
+        })
+        $('.prev').on('click', function () {
+            if (page > 1) {
+                $("#wrap > div:visible").hide();
+                $('.page' + --page).show();
+            }
+        })
+    }
+    function LoadCategory_shortname(tenngan) {
+        $.ajax({
+            url: "/Home/Get_Category_Product?type=" + tenngan,
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                var html = ""; var meta = "";
+                result.forEach(function (value, key) {
+                    html += '<div class="col-lg-4 col-md-6 col-12">';
+                    html += '<div class="single-product" >';
+                    html += '<div class="product-img">';
+                    html += '<a href="../Home/SingleProcduct/' + value.id_sanpham + '">';
+                    html += '<img class="default-img" src="../Source/img-public/' + value.hinhanh1 + '" alt="#">';
+                    html += '<img class="hover-img" src="../Source/img-public/' + value.hinhanh2 + '" alt="#">';
+                    html += '</a>';
+                    html += '<div class="button-head">';
+                    html += '<div class="product-action">';
+                    html += '<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>';
+                    html += '<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>';
+                    html += '<a title="Compare" href="#"><i class="ti-share"></i><span>Share</span></a>';
+                    html += '</div>';
+                    html += '<div class="product-action-2">';
+                    if (Number(value.giasale) < Number(value.dongia) && Number(value.giasale!=0)) {
+                        html += '<a title="Add to cart" href="#" onclick="addtocart(' + value.id_sanpham + ',\'' + value.tensp + '\',\'' + value.giasale + '\')">Add to cart</a>';
+                        
+                    }
+                    else {
+                        html += '<a title="Add to cart" href="#" onclick="addtocart(' + value.id_sanpham + ',\'' + value.tensp + '\',\'' + value.dongia + '\')">Add to cart</a>';
+                    }
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '<div class="product-content">';
+                    html += '<h3><a href="../Home/SingleProcduct/' + value.id_sanpham + '">' + value.tensp + '</a></h3>';
+                    html += '<div class="product-price">';
+                    if (Number(value.giasale) > 0 && Number(value.giasale) != Number(value.dongia)) {
+                        html += '<span>' + (value.giasale).toLocaleString('vi', { style: 'currency', currency: 'VND' }) + '</span>';
+                        html += '<span class="old">' + (value.dongia).toLocaleString('vi', { style: 'currency', currency: 'VND' }) + '</span>';
+                    }
+                    else {
+                        html += '<span>' + (value.dongia).toLocaleString('vi', { style: 'currency', currency: 'VND' }) + '</span>';
+                    }
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                    @*//Share
+                    meta += '@section metasocials{';
+                    meta += '<meta property="og:url" content="https://newstore.somee.com/SanPham/XemChiTiet/' + value.id_sanpham + '" />';
+                    meta += '<meta property="og:type" content="article" />';
+                    meta += '<meta property="og:title" content="' + value.tensp + '" />';
+                    meta += '<meta property="og:description" content="Giá: ' + (value.dongia).toLocaleString('vi', { style: 'currency', currency: 'VND' })+' Mô Tả:' + value.thongtin + ' />';
+                    meta += '<meta property="og:image" content="https://newstore.somee.com/Content/img-sp/SanPham/@Model.HinhAnh" />';
+                    meta += '}';*@
+                })
+                $('.loadProductPage').html(html + '<div class="pagination"></div>');
+                //$('#myTab').html(tab);
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+    }
+
+    function LoadProduct1() {
+        $.ajax({
+            url: "/Home/Get_Product_All",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                var html = ""; var meta = "";
+                result.forEach(function (value, key) {
+                    html += '<div class="col-lg-4 col-md-6 col-12">';
+                    html += '<div class="single-product" >';
+                    html += '<div class="product-img">';
+                    html += '<a href="../Home/SingleProcduct/' + value.id_sanpham + '">';
+                    html += '<img class="default-img" src="../Source/img-public/' + value.hinhanh1 + '" alt="#">';
+                    html += '<img class="hover-img" src="../Source/img-public/' + value.hinhanh2 + '" alt="#">';
+                    html += '</a>';
+                    html += '<div class="button-head">';
+                    html += '<div class="product-action">';
+                    html += '<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>';
+                    html += '<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>';
+                    html += '<a title="Compare" href="#"><i class="ti-share"></i><span>Share</span></a>';
+                    html += '</div>';
+                    html += '<div class="product-action-2">';
+                    if (Number(value.giasale) < Number(value.dongia) && Number(value.giasale != 0)) {
+                        html += '<a title="Add to cart" href="#" onclick="addtocart(' + value.id_sanpham + ',\'' + value.tensp + '\',\'' + value.giasale + '\')">Add to cart</a>';
+                    }
+                    else {
+                        html += '<a title="Add to cart" href="#" onclick="addtocart(' + value.id_sanpham + ',\'' + value.tensp + '\',\'' + value.dongia + '\')">Add to cart</a>';
+                    }
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '<div class="product-content">';
+                    html += '<h3><a href="../Home/SingleProcduct/' + value.id_sanpham + '">' + value.tensp + '</a></h3>';
+                    html += '<div class="product-price">';
+                    if (Number(value.giasale) > 0 && Number(value.giasale) != Number(value.dongia)) {
+                        html += '<span>' + (value.giasale).toLocaleString('vi', { style: 'currency', currency: 'VND' }) + '</span>';
+                        html += '<span class="old">' + (value.dongia).toLocaleString('vi', { style: 'currency', currency: 'VND' }) + '</span>';
+                    }
+                    else {
+                        html += '<span>' + (value.dongia).toLocaleString('vi', { style: 'currency', currency: 'VND' }) + '</span>';
+                    }
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                    @*//Share
+                        meta += '@section metasocials{';
+                    meta += '<meta property="og:url" content="https://newstore.somee.com/SanPham/XemChiTiet/' + value.id_sanpham + '" />';
+                    meta += '<meta property="og:type" content="article" />';
+                    meta += '<meta property="og:title" content="' + value.tensp + '" />';
+                    meta += '<meta property="og:description" content="Giá: ' + (value.dongia).toLocaleString('vi', { style: 'currency', currency: 'VND' }) + ' Mô Tả:' + value.thongtin + ' />';
+                    meta += '<meta property="og:image" content="https://newstore.somee.com/Content/img-sp/SanPham/@Model.HinhAnh" />';
+                    meta += '}';*@
+                })
+                $('.loadProductPage').html(html);
+                //$('#myTab').html(tab);
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+    }
+</script>
